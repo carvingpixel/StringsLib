@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+
+    <h1>Gimme Something Good</h1>
+
+    <form asp-controller="Home" asp-action="Create" class="form-inline mbm">
+
+        <p>calculate the answer to the Ultimate Question of Life, the Universe, and Everything...</p>
+
+        <div class="form-group">
+            <input class="form-control" name="EquipmentName" />
+            <input class="btn btn-primary" type="submit" value="Calculate" />
+        </div>
+
+    </form>
+
+
+</div>
+
+
+@model String
+<div class="row">
+
+    <div class="col-md-4">
+
+        <ul>
+            <li>@Model </li>
+        </ul>
+
+</div>
+
+
+
+</div>

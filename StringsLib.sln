@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsLib", "StringsLib\StringsLib.csproj", "{13F34A15-BD30-4AEA-A804-91D91133CB47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsWeb", "StringsWeb\StringsWeb.csproj", "{5303F9EB-25A8-469F-A581-0E126E3D4809}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsTest", "StringsTest\StringsTest.csproj", "{84976E9D-1C86-4976-8ACF-D8BE3AA56186}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{13F34A15-BD30-4AEA-A804-91D91133CB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13F34A15-BD30-4AEA-A804-91D91133CB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13F34A15-BD30-4AEA-A804-91D91133CB47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5303F9EB-25A8-469F-A581-0E126E3D4809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5303F9EB-25A8-469F-A581-0E126E3D4809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5303F9EB-25A8-469F-A581-0E126E3D4809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5303F9EB-25A8-469F-A581-0E126E3D4809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84976E9D-1C86-4976-8ACF-D8BE3AA56186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84976E9D-1C86-4976-8ACF-D8BE3AA56186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84976E9D-1C86-4976-8ACF-D8BE3AA56186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84976E9D-1C86-4976-8ACF-D8BE3AA56186}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
