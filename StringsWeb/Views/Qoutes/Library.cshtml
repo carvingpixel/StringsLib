@@ -1,5 +1,6 @@
 ﻿@model StringsLib.Analysis
 
+<!-- Model needs to be web model in mvc which then inherit analysis -->
 @{
     ViewBag.Title = "Library";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,9 +8,43 @@
 
 <h2>@Model.Name</h2>
 
+<form asp-action="Create">
+    <div class="form-group">
+        <label for="quoteGiven">@Model.TitleQuote</label>
+        <input name="quoteGiven" class="form-control" style="margin: 12px 0;" id="quoteGiven" placeholder="calculate" />
+        <input class="btn btn-primary" type="submit" value="Disemenate Quote" />
+    </div>
+</form>
 
-    <!-- Model.CharCheck('o', "Lokin Boyd Crook") -->
+
+<div>
+    <label>@Model.Name</label>
 
 
- <!--   Model.WordCheck("test", "This is a test of the wordcheck tester to test unique words") -->
+    @{ var quotePassed = Model.UserString; }
+    <p>You Provided: @quotePassed</p>
+    <p>Count Total: @Model.CountTotal(quotePassed)</p>
+    <p>Unique Words: @Model.WordsUnique(quotePassed)</p>
+
+
+    <!-- adding dictionary to view -->
+    @*@foreach (var item in ViewBag.MyDictionary) {
+            <ul>
+                <li>@item.Key
+                    <ul>
+                        @foreach (var subItem in item.Value) {
+                            <li>@subItem.Key --@subItem.Value</li>
+                        }
+                    </ul>
+                </li>
+            </ul>
+        }*@
+
+
+    <h3>Simple Test with string as params</h3>
+    <!-- simple test of methods -->
+    <p>Count Total:  @Model.CountTotal("simple test of test")</p>
+    <p>Unique Words: @Model.WordsUnique("simple test of test")</p>
+
+</div>
 

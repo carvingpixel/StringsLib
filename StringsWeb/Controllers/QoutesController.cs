@@ -13,11 +13,32 @@ namespace StringsWeb.Controllers
         // GET: Qoutes/Library
         public ActionResult Library()
         {
-            var movie = new Quotes() { Title = "Hitchhicker's Guide to the Galaxy", Author = "Douglas Adams"};
+            var genInfo = new Analysis() { Name = "Hitchhiker's Guide to the Galaxy" };
 
-            Analysis testMe = new Analysis() { Name = "Lokin Crook" }; 
-
-            return View(testMe);
+            return View(genInfo);
         }
+
+
+        public ActionResult Create(string quoteGiven)
+        {
+
+            //        var disemenate = new Analysis();
+            var genInfo = new Analysis
+            {
+                Name = "Hitchhiker's Guide to the Galaxy Part 2",
+                UserString = quoteGiven
+            };
+            
+            //Passing quote into view instead
+            //var ctResult = genInfo.CountTotal(quoteGiven);
+            //var wuResult = genInfo.WordsUnique(quoteGiven);
+            // var cuResult = disemenate.CountUnique(quoteGiven);
+
+            return View($"Library", genInfo);
+
+        }
+
+
+
     }
 }

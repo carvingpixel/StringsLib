@@ -267,7 +267,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Qoutes\Page.cshtml" />
     <Content Include="Views\Qoutes\Library.cshtml" />
   </ItemGroup>
   <ItemGroup>
