@@ -19,22 +19,25 @@ namespace StringsWeb.Controllers
         }
 
 
-        public ActionResult Create(string quoteGiven)
+
+        public ActionResult Review(string quoteGiven)
         {
 
-            //        var disemenate = new Analysis();
-            var genInfo = new Analysis
+            var myAsys = new Quotes()
             {
-                Name = "Hitchhiker's Guide to the Galaxy Part 2",
+                TitleQuote = "Calculate the answer to the Ultimate Question of Life",  
+                Author = "Douglas Adams",
+                Name ="Such Deep Thought, Thank You",
                 UserString = quoteGiven
             };
-            
+
             //Passing quote into view instead
             //var ctResult = genInfo.CountTotal(quoteGiven);
             //var wuResult = genInfo.WordsUnique(quoteGiven);
             // var cuResult = disemenate.CountUnique(quoteGiven);
 
-            return View($"Library", genInfo);
+            ViewBag.Asys = myAsys;  //dont use viewbag - magic method issues MovieMagicM too fragile spreads through code
+            return View();
 
         }
 

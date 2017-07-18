@@ -6,13 +6,10 @@ using StringsLib;
 
 namespace StringsWeb.Models 
 {
-    public class Quotes 
+    public class Quotes : Analysis
     {
-        public int ID { get; set; }
-        public string Title { get; set; }
         public string Author { get; set; }
-
-        //movies/DeepThought
+        public string DeeptThought { get; set; }
 
     }
 

@@ -1,0 +1,27 @@
+﻿@model StringsWeb.Models.Quotes
+
+@{
+    ViewBag.Title = "Review";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quotes Review</h2>
+
+<p>@ViewBag.Asys.Name</p> 
+
+<p>@ViewBag.Asys.Author</p> 
+
+<p>String is: @ViewBag.Asys.UserString</p>
+
+
+
+<form asp-controller="Quotes" asp-action="Review" class="form-inline mbm">
+
+    <p>@ViewBag.Asys.TitleQuote</p>
+
+    <div class="form-group">
+        <input class="form-control" name="passMe" />
+        <input class="btn btn-primary" type="submit" value="Calculate" />
+    </div>
+
+</form>

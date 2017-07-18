@@ -18,8 +18,7 @@ namespace StringsLib
             public Analysis()
         {
             Name = "Hitchhiker's Guide to The Galaxy";
-            TitleQuote = "Calculate the answer to the Ultimate Question of Life, the Universe, and Everything.";
-            UserString = "";
+            UserString = "temp";
         }
 
 
