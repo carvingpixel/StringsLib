@@ -12,29 +12,37 @@ namespace StringsTest
     {
         static void Main(string[] args)
         {
-            // setup console for checks of each task in analysis library 
-
-            //Create Analysis Object library to access methods to take apart strings
+            // QUICK TESTS VIA CONSOLE FOR LIBRARY TO PARSE STRING/WORD COUNTS
             var checkString = new Analysis();
-            Console.WriteLine(checkString.Name); // what is hitchhikers guide to the galaxy by douglas adams
-   
+
+
             //accept a string from user as input TEST set to lower
             Console.WriteLine("Provide a string quote to check");
             string givenQuote = Console.ReadLine();
             givenQuote.ToLower();
 
+
             //Analyze total count of words
             var wordCount = checkString.CountTotal(givenQuote);
             Console.WriteLine("Total Word Count: " + wordCount);
 
+
             //Total Count of Unique Words 
             checkString.WordsUnique(givenQuote);
 
+
             //Uunique words  
-            checkString.CountUnique(givenQuote);
+            Dictionary<string, int> myDictionary = checkString.CountUnique(givenQuote);
+            foreach (var subItem in myDictionary)
+            {
+               Console.WriteLine(subItem.Key + " " + subItem.Value);
+            }
+
+
 
             // All items complete in Analysis Library
             Console.ReadLine();
+
         }
     }
 }

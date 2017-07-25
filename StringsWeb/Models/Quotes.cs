@@ -10,10 +10,5 @@ namespace StringsWeb.Models
     {
         public string Author { get; set; }
         public string DeeptThought { get; set; }
-
     }
-
-
-
-
 }

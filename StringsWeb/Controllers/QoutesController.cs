@@ -5,40 +5,51 @@ using System.Web;
 using System.Web.Mvc;
 using StringsWeb.Models;
 using StringsLib;
+using StringsWeb.ViewModels;
 
 namespace StringsWeb.Controllers
 {
     public class QoutesController : Controller
     {
-        // GET: Qoutes/Library
-        public ActionResult Library()
-        {
-            var genInfo = new Analysis() { Name = "Hitchhiker's Guide to the Galaxy" };
 
-            return View(genInfo);
+        // GET: Movies/Check - calling string library to disemenate the string passed from form
+        public ActionResult Check(string passMe)
+        {
+            var myQuote = new Quotes();
+            // Using enum getmovies method for fun
+            Dictionary<string, int> myDictionary = new Dictionary<string, int>();
+
+            // if null or white set defaults
+            if (String.IsNullOrWhiteSpace(passMe))
+            {
+                ViewBag.MyDictionary = myDictionary;
+                myQuote.UserString = "";
+            }
+            else
+            {
+                myQuote.UserString = passMe;
+                // If you want to use ViewBag, we can //
+                ViewBag.myC = myQuote.CountTotal(passMe);
+                ViewBag.myWU = myQuote.WordsUnique(passMe);
+            }
+
+            // passobject through viewmodel
+            var viewModel = new CheckQuoteViewModel
+            {
+                Quote = myQuote,
+            };
+
+            // now instead of passing movie, we pass the viewModel 
+            return View(viewModel);
         }
 
 
 
-        public ActionResult Review(string quoteGiven)
+
+
+        public ActionResult Review()
         {
-
-            var myAsys = new Quotes()
-            {
-                TitleQuote = "Calculate the answer to the Ultimate Question of Life",  
-                Author = "Douglas Adams",
-                Name ="Such Deep Thought, Thank You",
-                UserString = quoteGiven
-            };
-
-            //Passing quote into view instead
-            //var ctResult = genInfo.CountTotal(quoteGiven);
-            //var wuResult = genInfo.WordsUnique(quoteGiven);
-            // var cuResult = disemenate.CountUnique(quoteGiven);
-
-            ViewBag.Asys = myAsys;  //dont use viewbag - magic method issues MovieMagicM too fragile spreads through code
             return View();
-
         }
 
 
