@@ -40,16 +40,17 @@ namespace StringsTest
                 Console.WriteLine(subItem.Key + " " + subItem.Value);
             }
 
+            // Reload Functionality from readkey 
             Console.Write("Type R to Reload Check: ");
-            // All items complete in Analysis Library
-
             var reload = Console.ReadKey();
             if (reload.Key == ConsoleKey.R)
             {
-                var SimpleCheck = Assembly.GetExecutingAssembly().Location;
-                System.Diagnostics.Process.Start(SimpleCheck);
+                var strConsole = Assembly.GetExecutingAssembly().Location;
+                System.Diagnostics.Process.Start(strConsole);
             }
-
         }
+
+
+
     }
 }
