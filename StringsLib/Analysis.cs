@@ -12,8 +12,35 @@ namespace StringsLib
     {
 
         //PROPERTIES
-        public string UserString { get; set; }
         private int _grandTotal;
+        private string _userString;
+
+
+
+        // set user string call clearCharacters and ToLower()
+        public void SetUserString(string s)
+        {
+//            s = s.ToLower();
+            var sb = new StringBuilder();
+            foreach (char c in s)
+            {
+                if (!char.IsPunctuation(c))
+                    sb.Append(c);
+            }
+            s = sb.ToString();
+            _userString = s.ToLower();
+        }
+
+        public string ClearCharacters(string cc)
+        {
+            var clearString = new string(cc.Where(c => !char.IsPunctuation(c)).ToArray());
+            return clearString;
+        }
+
+        public string GetUserString()
+        {
+            return _userString;
+        }
 
 
         //METHODS 

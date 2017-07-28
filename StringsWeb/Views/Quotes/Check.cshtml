@@ -20,14 +20,14 @@
 <h3>Using ViewModels</h3>
 
 @{
-    string quotePassed = Model.Quote.UserString;
+    string quotePassed = Model.Quote.GetUserString();
     if (quotePassed.IsNullOrWhiteSpace())
     {
         <p>give it a go!</p>
     }
     else
     {
-        Model.Quote.CountTotal(Model.Quote.UserString);
+        Model.Quote.CountTotal(quotePassed);
         <p>Count Total: @Model.Quote.CountTotal(quotePassed)</p>
         <p>Unique Words: @Model.Quote.WordsUnique(quotePassed)</p>
         Dictionary<string, int> myDictionary = Model.Quote.CountUnique(quotePassed);

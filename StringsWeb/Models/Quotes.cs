@@ -4,11 +4,24 @@ using System.Linq;
 using System.Web;
 using StringsLib;
 
-namespace StringsWeb.Models 
+namespace StringsWeb.Models
 {
     public class Quotes : Analysis
     {
-        public string Author { get; set; }
-        public string DeeptThought { get; set; }
+        // Adding Author as SubClass to Inherit SuperClass
+        private string _author;
+
+
+        public string GetAuthor()
+        {
+            return _author;
+        }
+
+        public void SetAuthor(string a)
+        {
+            _author = a;
+        }
+
+
     }
 }
