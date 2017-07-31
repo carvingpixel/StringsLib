@@ -10,17 +10,14 @@ namespace StringsLib
 {
     public class Analysis
     {
-
         //PROPERTIES
-        private int _grandTotal;
+      
         private string _userString;
-
 
 
         // set user string call clearCharacters and ToLower()
         public void SetUserString(string s)
         {
-//            s = s.ToLower();
             var sb = new StringBuilder();
             foreach (char c in s)
             {
@@ -31,11 +28,15 @@ namespace StringsLib
             _userString = s.ToLower();
         }
 
+
+        //Clear out punctuation
         public string ClearCharacters(string cc)
         {
             var clearString = new string(cc.Where(c => !char.IsPunctuation(c)).ToArray());
             return clearString;
         }
+
+
 
         public string GetUserString()
         {
@@ -48,11 +49,12 @@ namespace StringsLib
         {
             MatchCollection collection = Regex.Matches(phrase, @"[\S]+");
             return collection.Count;
+
         }
+
 
         public int WordsUnique(string phrase)
         {
-            //split the phrase and break up each unique store into object result
             var result = phrase.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)
                 .GroupBy(r => r)
                 .Select(grp => new
@@ -62,19 +64,18 @@ namespace StringsLib
                 });
 
             //get total count of unique words
+            var grandTotal = 0;
             foreach (var c in result)
             {
                 int current = 1;
-                _grandTotal += current;
+                grandTotal += current;
             }
-            //onsole.WriteLine("Unique Total Words:" + _grandTotal);
-            return _grandTotal;
+            return grandTotal;
         }
 
 
         public Dictionary<string, int> CountUnique(string phrase)
         {
-            //split the phrase and break up each unique store into ienumerable 
             var result = phrase.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)
                 .GroupBy(r => r)
                 .Select(grp => new
@@ -85,21 +86,15 @@ namespace StringsLib
 
             //Sort ienumerable of result Words
             var sortedWords = result.OrderBy(a => a.Word);
-            var uniqueDict = new Dictionary<string, int>();
 
-            //output unique word and count
+            //store sorted unique word and count in dictionary
+            var uniqueDict = new Dictionary<string, int>();
             foreach (var item in sortedWords)
             {
-                //                Console.WriteLine("{0} {1}", item.Word, item.Count);
-                //use dictionary like an associative array to store ints and strings for output
                 uniqueDict.Add(item.Word, item.Count);
             }
-            //return dictionary of item.word & item.count
             return uniqueDict;
         }
-
-
-
 
 
         //endofline

@@ -6,33 +6,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Check Quote</h2>
-
-<form asp-controller="Quotes" asp-action="Check" class="form-inline mbm" method="post">
-    <p>calculate the answer to the Ultimate Question of Life, the Universe, and Everything...</p>
-    <div class="form-group">
-        <input class="form-control" name="passMe" />
-        <input class="btn btn-primary" type="submit" value="Calculate" />
-    </div>
-</form>
-
-
-<h3>Using ViewModels</h3>
+<h2>Give a Quote</h2>
 
 @{
     string quotePassed = Model.Quote.GetUserString();
     if (quotePassed.IsNullOrWhiteSpace())
     {
         <p>give it a go!</p>
+        <form asp-controller="Quotes" asp-action="Check" class="form-inline mbm" method="post">
+            <p>calculate the answer to the Ultimate Question of Life, the Universe, and Everything...</p>
+            <div class="form-group">
+                <input class="form-control" name="passMe" />
+                <input class="btn btn-primary" type="submit" value="Calculate" />
+            </div>
+        </form>
     }
     else
     {
+        <h3>Using ViewModels</h3>
         Model.Quote.CountTotal(quotePassed);
         <p>Count Total: @Model.Quote.CountTotal(quotePassed)</p>
         <p>Unique Words: @Model.Quote.WordsUnique(quotePassed)</p>
-        Dictionary<string, int> myDictionary = Model.Quote.CountUnique(quotePassed);
+
+        Dictionary<string, int> myWordCounts = Model.Quote.CountUnique(quotePassed);
         <ul>
-            @foreach (var subItem in myDictionary)
+            @foreach (var subItem in myWordCounts)
             {
                 <li>
                     @subItem.Key

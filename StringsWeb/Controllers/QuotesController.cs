@@ -18,22 +18,23 @@ namespace StringsWeb.Controllers
         }
 
 
+
+
         // GET: Movies/Check - calling string library to disemenate the string passed from form
         public ActionResult Check(string passMe)
         {
             var myQuote = new Quotes();
 
-            // Using enum getmovies method for fun
-            Dictionary<string, int> myDictionary = new Dictionary<string, int>();
+            //  getmovies 
+            Dictionary<string, int> myWordCounts = new Dictionary<string, int>();
 
-            // if null or white set defaults
+
             if (String.IsNullOrWhiteSpace(passMe))
             {
-                ViewBag.MyDictionary = myDictionary;
+                ViewBag.MyDictionary = myWordCounts;
             }
             else
             {
-
                 myQuote.SetAuthor("Douglas Adams");
                 myQuote.SetUserString(passMe);
 
@@ -41,8 +42,6 @@ namespace StringsWeb.Controllers
                 ViewBag.myC = myQuote.CountTotal(passMe);
                 ViewBag.myWU = myQuote.WordsUnique(passMe);
             }
-
-
 
             // passobject through viewmodel
             var viewModel = new CheckQuoteViewModel
