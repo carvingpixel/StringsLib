@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Direct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Direct</h2>
+
+<p>
+    This view and controller shows how a string from a form can directly use the Class Library without
+    going thorugh inheritance of the quotes class.
+</p>
+
+
+<form asp-controller="Quotes" asp-action="Direct" class="form-inline mbm" method="post">
+    <p>calculate the answer to the Ultimate Question of Life, the Universe, and Everything...</p>
+    <div class="form-group">
+        <input class="form-control" name="passMe" />
+        <input class="btn btn-primary" type="submit" value="Calculate" />
+    </div>
+</form>

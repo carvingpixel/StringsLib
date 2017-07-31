@@ -18,8 +18,6 @@ namespace StringsWeb.Controllers
         }
 
 
-
-
         // GET: Movies/Check - calling string library to disemenate the string passed from form
         public ActionResult Check(string passMe)
         {
@@ -52,6 +50,26 @@ namespace StringsWeb.Controllers
             // now instead of passing movie, we pass the viewModel 
             return View(viewModel);
         }
+
+
+        public ActionResult Direct(string passMe)
+        {
+            //showing direct access to class library and passing to view via viewbag, model class not access which held inheritance in last example
+
+            var DirectCheck = new Analysis();
+            DirectCheck.SetUserString(passMe);
+            var SetString = DirectCheck.GetUserString();
+
+            ViewBag.myC = DirectCheck.CountTotal(SetString);
+            ViewBag.myWU = DirectCheck.WordsUnique(SetString);
+            ViewBag.myWCU = DirectCheck.CountUnique(SetString);
+
+            return View();
+        }
+
+
+
+
 
 
 

@@ -6,12 +6,13 @@ using StringsWeb.Models;
 
 namespace StringsWeb.ViewModels
 {
+    // Adding a ViewModel to share Movies and a List of Popular Quotes
     public class CheckQuoteViewModel
     {
         //Movie object
         public Quotes Quote { get; set; }
 
-        //List of Customers
+        //List of Popular Quotes
 
 
     }
