@@ -10,8 +10,6 @@ namespace StringsLib
 {
     public class Analysis
     {
-        //PROPERTIES
-      
         private string _userString;
 
 
@@ -37,14 +35,14 @@ namespace StringsLib
         }
 
 
-
+        //get user string
         public string GetUserString()
         {
             return _userString;
         }
 
 
-        //METHODS 
+        //Count Total
         public int CountTotal(string phrase)
         {
             MatchCollection collection = Regex.Matches(phrase, @"[\S]+");
@@ -52,7 +50,7 @@ namespace StringsLib
 
         }
 
-
+        //words unique
         public int WordsUnique(string phrase)
         {
             var result = phrase.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)
@@ -74,6 +72,7 @@ namespace StringsLib
         }
 
 
+        //count unique 
         public Dictionary<string, int> CountUnique(string phrase)
         {
             var result = phrase.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)
@@ -97,6 +96,6 @@ namespace StringsLib
         }
 
 
-        //endofline
+
     }
 }

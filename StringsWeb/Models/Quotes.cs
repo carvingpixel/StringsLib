@@ -9,8 +9,11 @@ namespace StringsWeb.Models
     public class Quotes : Analysis
     {
         // Adding Author as SubClass to Inherit SuperClass
-        private string _author;
 
+        public string Name { get; set; }
+        public bool? FamiliarWith { get; set; }
+
+        private string _author;
 
         public string GetAuthor()
         {
@@ -21,6 +24,8 @@ namespace StringsWeb.Models
         {
             _author = a;
         }
+
+
 
 
     }

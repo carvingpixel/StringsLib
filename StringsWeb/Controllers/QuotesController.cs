@@ -18,7 +18,9 @@ namespace StringsWeb.Controllers
         }
 
 
-        // GET: Movies/Check - calling string library to disemenate the string passed from form
+
+        
+        // GET: CHECK() - calling string library to disemenate the string passed from form
         public ActionResult Check(string passMe)
         {
             var myQuote = new Quotes();
@@ -52,27 +54,37 @@ namespace StringsWeb.Controllers
         }
 
 
+
+        
+        //DIRECT()
         public ActionResult Direct(string passMe)
         {
             //showing direct access to class library and passing to view via viewbag, model class not access which held inheritance in last example
 
-            var DirectCheck = new Analysis();
-            DirectCheck.SetUserString(passMe);
-            var SetString = DirectCheck.GetUserString();
+            if (!String.IsNullOrWhiteSpace(passMe))
+            {
+                var DirectCheck = new Analysis();
 
-            ViewBag.myC = DirectCheck.CountTotal(SetString);
-            ViewBag.myWU = DirectCheck.WordsUnique(SetString);
-            ViewBag.myWCU = DirectCheck.CountUnique(SetString);
+                DirectCheck.SetUserString(passMe);
+                var SetString = DirectCheck.GetUserString();
+
+                ViewBag.myC = DirectCheck.CountTotal(SetString);
+                ViewBag.myWU = DirectCheck.WordsUnique(SetString);
+                ViewBag.myWCU = DirectCheck.CountUnique(SetString);
+            }
 
             return View();
         }
 
 
+        public ViewResult MVCForm()
+        {
+            return View();
+        }
 
 
 
-
-
+        // REVIEW()
         public ActionResult Review()
         {
             return View();

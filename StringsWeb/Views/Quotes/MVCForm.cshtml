@@ -1,0 +1,37 @@
+﻿@model StringsWeb.Models.Quotes
+
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MVCForm</title>
+</head>
+<body>
+    <div>
+        <h1>html BeginForm</h1>
+
+        @using (Html.BeginForm())
+        {
+            <p>Name: @Html.TextBoxFor(x => x.Name)</p>
+            <p>
+                Are you familiar with Douglas Adams?
+                @Html.DropDownListFor(
+                x => x.FamiliarWith, new[] {
+                new SelectListItem() { Text = "Yes, I am", Value = bool.TrueString},
+                new SelectListItem() { Text = "No, I am not!", Value = bool.FalseString}
+                }, "Choose an option")
+            </p>
+
+        }
+
+
+    </div>
+</body>
+</html>

@@ -6,10 +6,7 @@
 
 <h2>Direct</h2>
 
-<p>
-    This view and controller shows how a string from a form can directly use the Class Library without
-    going thorugh inheritance of the quotes class.
-</p>
+<p>This view and controller shows how a string from a form can directly use the Class Library without going thorugh inheritance of the quotes class.</p>
 
 
 <form asp-controller="Quotes" asp-action="Direct" class="form-inline mbm" method="post">
@@ -19,3 +16,26 @@
         <input class="btn btn-primary" type="submit" value="Calculate" />
     </div>
 </form>
+
+
+
+
+<h3>Using ViewBag</h3>
+<p>ViewBag Count: @ViewBag.myC</p>
+<p>viewBag Words unique: @ViewBag.myWU</p>
+
+<p>viewBag Words count each unique:</p>
+
+@if (ViewBag.myWCU != null)
+{
+    <ul>
+        @foreach (var subItem in @ViewBag.myWCU)
+        {
+            <li>
+                @subItem.Key
+                @subItem.Value
+            </li>
+        }
+    </ul>
+}
+
