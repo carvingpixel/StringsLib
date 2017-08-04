@@ -14,7 +14,8 @@
 </head>
 <body>
     <p>
-    <script type="text/javascript">alert("ASP is too easy, I love it!");</script></p>
+        <script type="text/javascript">alert("ASP is too easy, I love it!");</script>
+    </p>
 
     <div>
 
@@ -54,9 +55,17 @@
 
         <h2>Using PHP Includes in ASP Web Pages</h2>
 
-        <p>instead of includes, it's now AT$RenderPage(filename.cshtml) This is using razor though, not classic ASP </p>
+        <p>
+            instead of includes, it's now AT$RenderPage(filename.cshtml) This is using razor though.But you wouldnt do that with MVC. With MVC we
+            could just add a shared layout and then add that at the top. But I wonder how you would do a footer layout? Add Layout code at bottom and call it too?
+        </p>
+
 
     </div>
+
+@RenderPage("Index.cshtml")
+
+
 </body>
 
 

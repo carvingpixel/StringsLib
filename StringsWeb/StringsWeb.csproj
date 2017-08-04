@@ -276,6 +276,7 @@
     <Content Include="Views\UserResponse\MVCForm.cshtml" />
     <Content Include="Views\Quotes\MVCForm.cshtml" />
     <Content Include="Views\Home\Aspwp.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

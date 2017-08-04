@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("StringsLib", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -25,6 +25,7 @@
                 <li>@Html.ActionLink("Check", "Check", "Quotes")</li>
                 <li>@Html.ActionLink("Direct", "Direct", "Quotes")</li>
                 <li>@Html.ActionLink("MVCForm", "MVCForm", "Quotes")</li>
+                <li>@Html.ActionLink("ASPWP", "aspwp", "Home")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
@@ -33,9 +34,8 @@
 <div class="container body-content">
     @RenderBody()
     <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
+
+    @Html.Partial("_FooterPartial")
 </div>
 
 @Scripts.Render("~/bundles/jquery")
