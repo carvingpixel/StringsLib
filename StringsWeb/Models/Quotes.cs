@@ -26,7 +26,5 @@ namespace StringsWeb.Models
         }
 
 
-
-
     }
 }

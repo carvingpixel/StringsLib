@@ -8,6 +8,7 @@
 
 <h2>Give a Quote</h2>
 
+
 @{
     string quotePassed = Model.Quote.GetUserString();
     if (quotePassed.IsNullOrWhiteSpace())
@@ -20,6 +21,7 @@
                 <input class="btn btn-primary" type="submit" value="Calculate" />
             </div>
         </form>
+
     }
     else
     {
@@ -43,7 +45,6 @@
         <h3>Using ViewBag</h3>
         <p>ViewBag Count: @ViewBag.myC</p>
         <p>viewBag Words unique: @ViewBag.myWU</p>
-
     }
 }
 

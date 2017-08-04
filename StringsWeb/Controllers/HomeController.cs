@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using StringsWeb.Models;
 
 namespace StringsWeb.Controllers
 {
@@ -11,22 +12,42 @@ namespace StringsWeb.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Test = "Test viewbag";
             return View();
         }
 
 
-        public ActionResult About()
+        public ActionResult Aspwp()
         {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
+            ViewBag.Heading = "ASP Web Pages";
+            ViewBag.Title = ViewBag.Heading;
+            ViewBag.ArrayText = ArrayOut();
+
+            var rockit = new Aspwp();
+            rockit.Odd = "Ricky Rocket Model Name";
+            ViewBag.modCheck = rockit.Odd;
+
+            return View(rockit);
         }
 
-        public ActionResult Contact()
+
+
+        readonly string[] BushesofLove = new string[3] { "Chicken Head", "With", "Duck Feet" };
+
+
+        public string ArrayOut()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var arrayText = "";
+            foreach (var bol in BushesofLove)
+            {
+                // Response.Write(bol + " ");
+                var temp = bol + " ";
+                arrayText = arrayText + temp;
+            }
+            return arrayText;
         }
+
+
     }
 }

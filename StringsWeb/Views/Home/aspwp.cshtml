@@ -1,0 +1,64 @@
+﻿@using System.Data.Entity.Core.Common.EntitySql
+@model StringsWeb.Models.Aspwp
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Msg = "This is a viewbag";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>aspwp</title>
+</head>
+<body>
+    <p>
+    <script type="text/javascript">alert("ASP is too easy, I love it!");</script></p>
+
+    <div>
+
+        <h2>@Model.Odd;</h2>
+
+        <h4>ViewBags Dont Intellisense</h4>
+
+        <ul>
+            <li>@ViewBag.modCheck</li>
+            <li>@ViewBag.ArrayText</li>
+            <li>@ViewBag.Heading</li>
+        </ul>
+
+        <p>
+            A simple page about ASP web pages. The code is so simple compared to PHP. PHP can be used on the page like ASP
+            Razor. WIth PHP you use @string.Format("<?php") to open php and @string.Format("?>") to close it. With Razor it's so much
+            easier, quicker and intuitive.
+
+            @{
+                var myMessage = "A Jedi will you be..";
+            }
+
+        <p>
+            Here's a razor quote from Star Wars, sorta... @myMessage
+        </p>
+        <p>Today is @DateTime.Now </p>
+
+        @{
+            var greeting = "Greetings Program!";
+            var thisMoment = DateTime.Now.DayOfWeek;
+            var dateGreet = greeting + " Today is " + thisMoment;
+            Response.Write("This is a response write, text like an echo but from a method instead");
+        }
+
+        <p> Let me take a moment to say @dateGreet</p>
+
+
+        <h2>Using PHP Includes in ASP Web Pages</h2>
+
+        <p>instead of includes, it's now AT$RenderPage(filename.cshtml) This is using razor though, not classic ASP </p>
+
+    </div>
+</body>
+
+
+
+</html>
