@@ -6,7 +6,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Give a Quote</h2>
+<h2>.NET WebPages</h2>
+<p>Using just the view to send and respond to data</p>
+
+@{ if (IsPost) {
+       string passing = Request["passMe"];
+        <p>You Provided @passing</p>
+       Model.Quote.CountTotal(passing);
+       <p>Count Total: @Model.Quote.CountTotal(passing)</p>
+       <p>Unique Words: @Model.Quote.WordsUnique(passing)</p>
+
+       Dictionary<string, int> myWordCounts = Model.Quote.CountUnique(passing);
+       <ul>
+           @foreach (var subItem in myWordCounts)
+           {
+               <li>
+                   @subItem.Key
+                   @subItem.Value
+               </li>
+           }
+       </ul>
+
+   }
+    else
+    {
+
+       <form asp-controller="Quotes" asp-action="Check" class="form-inline mbm" method="post">
+           <p>calculate the answer to the Ultimate Question of Life, the Universe, and Everything...</p>
+           <div class="form-group">
+               <input class="form-control" name="passMe" />
+               <input class="btn btn-primary" type="submit" value="Calculate" />
+           </div>
+       </form>
+   }
+}
+
+
+
+
+
+<h2>PHP Sort of approach</h2>
+<p>Using the controller and model to run it</p>
 
 
 @{

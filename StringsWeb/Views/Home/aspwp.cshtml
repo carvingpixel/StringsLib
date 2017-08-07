@@ -26,14 +26,35 @@
         <ul>
             <li>@ViewBag.modCheck</li>
             <li>@ViewBag.ArrayText</li>
-            <li>@ViewBag.Heading</li>
+
         </ul>
 
-        <p>
-            A simple page about ASP web pages. The code is so simple compared to PHP. PHP can be used on the page like ASP
-            Razor. WIth PHP you use @string.Format("<?php") to open php and @string.Format("?>") to close it. With Razor it's so much
-            easier, quicker and intuitive.
+        
+        @{
+            if (IsPost)
+            {
+                string companyname = Request["CompanyName"];
+                string contactname = Request["ContactName"];
+                <p>
+                    You entered: <br />
+                    Company Name: @companyname <br />
+                    Contact Name: @contactname
+                </p>
+            }
+            else
+            {
+                <form method="post" action="">
+                    Company Name:<br />
+                    <input type="text" name="CompanyName" value="" /><br />
+                    Contact Name:<br />
+                    <input type="text" name="ContactName" value="" /><br /><br />
+                    <input type="submit" value="Submit" class="submit" />
+                </form>
+            }
+        }
 
+
+        <p>
             @{
                 var myMessage = "A Jedi will you be..";
             }
@@ -63,7 +84,7 @@
 
     </div>
 
-@RenderPage("Index.cshtml")
+    @RenderPage("Index.cshtml")
 
 
 </body>
