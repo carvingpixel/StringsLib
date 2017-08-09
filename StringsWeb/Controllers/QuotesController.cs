@@ -63,14 +63,29 @@ namespace StringsWeb.Controllers
 
             if (!String.IsNullOrWhiteSpace(passMe))
             {
+                //this shows direct access to the library instantiation @using stringsLib
                 var DirectCheck = new Analysis();
 
+
+                //why bother with setting the string and then making a new variable to pass?
+                // security might be a good reason or we need to get it again. but otherwise just kill it
                 DirectCheck.SetUserString(passMe);
                 var SetString = DirectCheck.GetUserString();
+
 
                 ViewBag.myC = DirectCheck.CountTotal(SetString);
                 ViewBag.myWU = DirectCheck.WordsUnique(SetString);
                 ViewBag.myWCU = DirectCheck.CountUnique(SetString);
+
+                // The following works because they are public functions 
+                // the string is private so we can set it via the getter setters
+                // but the functions themselves are public too so there is no reason to use the string at all
+                // and it can be bypassed which may not be what we want. 
+                // so do you skip the string in teh properties and make them public
+                // or make them private and force inhouse string access
+                ViewBag.myC2 = DirectCheck.CountTotal(passMe);
+                ViewBag.myWU2 = DirectCheck.WordsUnique(passMe);
+                ViewBag.myWCU2 = DirectCheck.CountUnique(passMe);
             }
 
             return View();

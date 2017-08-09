@@ -19,7 +19,6 @@
 
 
 
-
 <h3>Using ViewBag</h3>
 <p>ViewBag Count: @ViewBag.myC</p>
 <p>viewBag Words unique: @ViewBag.myWU</p>
@@ -39,3 +38,24 @@
     </ul>
 }
 
+
+
+<h3>ViewBag 2 passing string right to stringslib functions</h3>
+
+<p>ViewBag Count: @ViewBag.myC2</p>
+<p>viewBag Words unique: @ViewBag.myWU2</p>
+
+<p>viewBag Words count each unique:</p>
+
+@if (ViewBag.myWCU2 != null)
+{
+    <ul>
+        @foreach (var subItem in @ViewBag.myWCU2)
+        {
+            <li>
+                @subItem.Key
+                @subItem.Value
+            </li>
+        }
+    </ul>
+}

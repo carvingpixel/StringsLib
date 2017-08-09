@@ -10,9 +10,11 @@
 <p>Using just the view to send and respond to data</p>
 
 @{ if (IsPost) {
-       string passing = Request["passMe"];
+        //Heres a bypass view to view calling superclass stringslib via inheritance of quotes
+        string passing = Request["passMe"];
         <p>You Provided @passing</p>
-       Model.Quote.CountTotal(passing);
+
+        Model.Quote.CountTotal(passing);
        <p>Count Total: @Model.Quote.CountTotal(passing)</p>
        <p>Unique Words: @Model.Quote.WordsUnique(passing)</p>
 

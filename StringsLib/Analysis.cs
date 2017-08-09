@@ -10,6 +10,7 @@ namespace StringsLib
 {
     public class Analysis
     {
+        public string stringTester;
         private string _userString;
 
 
